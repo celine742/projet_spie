@@ -4,7 +4,7 @@ import os
 import datetime
 
 router = APIRouter()
-
+"""
 class ElectroMenager:
     lave_linge: int
     lave_vaisselle: int
@@ -31,7 +31,7 @@ async def composition_habitation(liste_appareils: ElectroMenager):
     df_appareils_menagers = pd.DataFrame(compo_habitation, index =[0])
 
     return df_appareils_menagers
-
+"""
 # @router.post("/api/optim")
 # async def utilisation_appareils()
 

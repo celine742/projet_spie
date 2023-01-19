@@ -8,11 +8,11 @@ import datetime as dt
 router = APIRouter()
 
 @router.post("/api/predict")
-async def prediction_consommation(année: int,mois:int,jour:int, heure: str, type_habitation: str, surface: int, nb_habitants: int):
-    with open(f'Model.data {type_habitation}{surface}-{nb_habitants}.json', 'r') as f:
+async def prediction_consommation(année: int,mois:int,jour:int, heure: int,minute:int, type_habitation: str, surface: int, nb_habitants: int):
+    with open(f'Model/data {type_habitation}{surface}-{nb_habitants}.json', 'r') as f:
         model = model_from_json(f.read())  # Load model
     dateTest=dt.date(année,mois,jour)
-    dateWithHour=dt.datetime.combine(dateTest, dt.time(15,30))+dt.timedelta(days=1)
+    dateWithHour=dt.datetime.combine(dateTest, dt.time(heure,minute))+dt.timedelta(days=1)
     Datepredict=[]
     Datepredict.append(dateWithHour)
     testDates = pd.DataFrame(Datepredict, columns=['ds'])
