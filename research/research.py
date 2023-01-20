@@ -32,8 +32,8 @@ def read_time(file_path):
     # print(time)
     return time
 
-file_path_data = "/data/Documents/ING3/UseCase Spie/research/data.csv"
-file_path_time = "/data/Documents/ING3/UseCase Spie/research/time.txt"
+file_path_data = "research/data.csv"
+file_path_time = "research/time.txt"
 
 def get_index_by_id(id):
     dataframe = pd.read_csv(file_path_data, header=None)
@@ -44,9 +44,11 @@ def get_index_by_id(id):
             break
     time = read_time(file_path_time)
     labels = ["LV","LL","SL","TV","FG_1","CE_1","CG","FO","PL","FG_2","CE_2"]
+    d={}
     for k, label in enumerate(labels):
-        print(f"{label} : starting hour(s) : {time[index][k]}")
+        d[label]=time[index][k]
+
+    return d
 
 
 
-get_index_by_id("A100-3-1")
